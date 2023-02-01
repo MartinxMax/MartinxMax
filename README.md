@@ -6,7 +6,5 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=ffffff)
 ![Linux](https://img.shields.io/badge/-Linux-333333?style=flat-square&logo=linux&logoColor=white)
 
- ![DOG](https://github.com/MartinxMax/MartinxMax/blob/main/dog.png)  
-  
-
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=%23Whaomi;Root;%23rm+-rf+%2F*;File+deleted+successfully---%5Bdone%5D)
  
