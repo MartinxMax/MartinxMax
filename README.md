@@ -9,3 +9,4 @@
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=%23whoami;Root;%23rm+-rf+%2F*;File+deleted+successfully---%5Bdone%5D)
  
+![图片名称](./Martin_Exclusive_LOGO_with_copyright.png) 
