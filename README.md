@@ -8,5 +8,7 @@
 ![OT](https://img.shields.io/badge/-OT-003333?style=flat-square&logo=OT&logoColor=green)
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=%23whoami;Root;%23rm+-rf+%2F*;File+deleted+successfully---%5Bdone%5D)
+
+[点击此处使用我的 CSDN 博客 RSS 订阅](https://blog.csdn.net/qq_51886509/rss/list?spm=1001.2014.3001.5494）
  
 ![图片名称](./Martin_Exclusive_LOGO_with_copyright.png) 
