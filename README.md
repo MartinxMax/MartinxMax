@@ -7,6 +7,6 @@
 ![Linux](https://img.shields.io/badge/-Linux-333333?style=flat-square&logo=linux&logoColor=white)
 ![OT](https://img.shields.io/badge/-OT-003333?style=flat-square&logo=OT&logoColor=green)
 
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=%23whoami;Root;%23rm+-rf+%2F*;File+deleted+successfully---%5Bdone%5D)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=@[x_x]%23whoami;@[x_x]Root;@[x_x]%23rm+-rf+%2F*;@[x_x]File+deleted+successfully---%5Bdone%5D)
 
 ![图片名称](./Martin_Exclusive_LOGO_with_copyright.png) 
