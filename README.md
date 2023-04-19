@@ -9,6 +9,6 @@
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=@[x_x]%23whoami;@[x_x]Root;@[x_x]%23rm+-rf+%2F*;@[x_x]File+deleted+successfully---%5Bdone%5D)
 
-_https://www.freebuf.com/author/maptnh_
+_关注:https://www.freebuf.com/author/maptnh_
 
 ![图片名称](./Martin_Exclusive_LOGO_with_copyright.png) 
