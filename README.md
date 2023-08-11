@@ -13,4 +13,6 @@ _关注FreeBuf:https://www.freebuf.com/author/maptnh_
 
 _关注CSDN:https://blog.csdn.net/qq_51886509?spm=1001.2101.3001.5343_
 
+_知乎视频:https://www.zhihu.com/people/uphtoe_
+
 ![图片名称](./bears.gif) 
