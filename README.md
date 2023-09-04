@@ -7,7 +7,9 @@
 ![Linux](https://img.shields.io/badge/-Linux-333333?style=flat-square&logo=linux&logoColor=white)
 ![OT](https://img.shields.io/badge/-OT-003333?style=flat-square&logo=OT&logoColor=green)
 
-
+<div>
+<img align="left" src="https://count.getloli.com/get/@MartinxMax?theme=rule34">
+</div>
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=[ROOT@Maptnh]%23whoami;Root;[ROOT@Maptnh]%23pwd;%2f烫烫烫烫烫烫烫)
 
@@ -76,4 +78,6 @@ _YouTuBe视频:https://www.youtube.com/channel/UCOpY_AQmneOiRn1_zmzUVbw_
 ![图片名称](./China.gif) 
 
 ![图片名称](./Russia.gif) 
+
+
 
