@@ -13,11 +13,11 @@
 
 ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=[ROOT@Maptnh]%23whoami;Root;[ROOT@Maptnh]%23pwd;%2f烫烫烫烫烫烫烫)
 
-_关注FreeBuf:https://www.freebuf.com/author/maptnh_
+_Блогер FreeBuf:https://www.freebuf.com/author/maptnh_
 
-_关注CSDN:https://blog.csdn.net/qq_51886509?spm=1001.2101.3001.5343_
+_Блогер CSDN:https://blog.csdn.net/qq_51886509?spm=1001.2101.3001.5343_
 
-_YouTuBe视频:https://www.youtube.com/channel/UCOpY_AQmneOiRn1_zmzUVbw_
+_видео YouTuBe:https://www.youtube.com/channel/UCOpY_AQmneOiRn1_zmzUVbw_
 
 ![S-Clustr(Zombie Network)](https://github.com/MartinxMax/S-Clustr)
 
