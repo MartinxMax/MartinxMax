@@ -2,8 +2,6 @@
  
 # >>>Begrenze deine Aktionen nicht auf die virtuelle Welt<<<
 
-![hackerman](https://example.com/hackerman.gif)
-
 
 # S-H4CK13 @ Мартин.   🇷🇺 🇨🇳🥷💻🔓
 
