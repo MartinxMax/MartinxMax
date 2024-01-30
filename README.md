@@ -1,13 +1,10 @@
-
+ 
  
 # >>>Begrenze deine Aktionen nicht auf die virtuelle Welt<<<
 
 ![hackerman](https://example.com/hackerman.gif)
 
-<p align="center">
-  <img src="./logo2.png" alt="Description">
-</p>
- 
+
 # S-H4CK13 @ Мартин.   🇷🇺 🇨🇳🥷💻🔓
 
 
@@ -43,6 +40,9 @@
 - [📸 Martin_Video_Hacker-V1.0 (Hot key trigger to capture pictures)](https://github.com/MartinxMax/Martin_Video_Hacker-V1.0): Capture images using hotkeys.
 
   
-
+<p align="center">
+  <img src="./logo2.png" alt="Description">
+</p>
+ 
 
 
