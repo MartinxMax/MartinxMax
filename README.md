@@ -1,85 +1,45 @@
-![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=Java&logoColor=ffffff)
-![C](https://img.shields.io/badge/-C-002296?style=flat-square&logo=C&logoColor=ffffff)
-![Go](https://img.shields.io/badge/-GoLang-005596?style=flat-square&logo=Go&logoColor=ffffff)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=ffffff)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=ffffff)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=ffffff)
-![Linux](https://img.shields.io/badge/-Linux-333333?style=flat-square&logo=linux&logoColor=white)
-![OT](https://img.shields.io/badge/-OT-003333?style=flat-square&logo=OT&logoColor=green)
+ 
+# Begrenze deine Aktionen nicht auf die virtuelle Welt
 
-<div>
-<img align="left" src="https://count.getloli.com/get/@MartinxMax?theme=rule34">
-</div>
-
-![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=2000&pause=1&color=12FF00&background=000000&width=500&height=30&lines=[ROOT@Maptnh]%23whoami;Root;[ROOT@Maptnh]%23pwd;%2f烫烫烫烫烫烫烫)
-
-_Блогер FreeBuf:https://www.freebuf.com/author/maptnh_
-
-_Блогер CSDN:https://blog.csdn.net/qq_51886509?spm=1001.2101.3001.5343_
-
-_видео YouTuBe:https://www.youtube.com/channel/UCOpY_AQmneOiRn1_zmzUVbw_
-
-![S-Clustr(Zombie Network)](https://github.com/MartinxMax/S-Clustr)
-
-![MChat-Gpt(Calling the chatgpt interface to achieve data sharing between internal and external networks)](https://github.com/MartinxMax/MChat-Gpt)
-
-![Caller(Send voice to the victim)](https://github.com/MartinxMax/Caclert)
-
-![Anteater(Obtain sensitive information under the directory)](https://github.com/MartinxMax/Anteater)
-
-![Nets3e(Stealing photos of victims)](https://github.com/MartinxMax/Nets3e)
-
-![Night_of_19 (Switch the rebound shell session from Ethernet to Bluetooth control)](https://github.com/MartinxMax/Night_of_19)
-
-![MAPI(API library)](https://github.com/MartinxMax/MAPI)
-
-![MartSQLI(SQL injection automatically obtains server configuration information)](https://github.com/MartinxMax/MartSQLI)
-
-![MCGS_DD(Attack industrial network devices MCGS )](https://github.com/MartinxMax/MCGS_DD)
-
-![MSSRF(Server sensitive file collection)](https://github.com/MartinxMax/MSSRF)
-
-![GitPush(Github Push)](https://github.com/MartinxMax/GitPush)
-
-![MCollider(Digital Blasting MD5)](https://github.com/MartinxMax/MCollider)
-
-![MBAK(Backup file explosion )](https://github.com/MartinxMax/MBAK)
-
-![MRaider(Bluetooth near-source penetration attack)](https://github.com/MartinxMax/MRaider)
-
-![MSSTI(Verification SSTI vulnerability)](https://github.com/MartinxMax/MSSTI)
-
-![MAntagonist(PHP pseudo protocol file read explosion)](https://github.com/MartinxMax/MAntagonist)
-
-![MDOG_GGB(XSS tool)](https://github.com/MartinxMax/MDOG_GGB)
-
-![MPHP(Verification ThinkPHP vulnerability)](https://github.com/MartinxMax/MPHP)
-
-![MBlast(Sensitive character filtering detection analysis)](https://github.com/MartinxMax/MBlast)
-
-![Regulator(Leave the automatic screen)](https://github.com/MartinxMax/Regulator)
-
-![Mole(LD_ PRLAOD function hijacking (Web hijacking))](https://github.com/MartinxMax/Mole)
-
-![MXXE(XXE vulnerability data receiver)](https://github.com/MartinxMax/MXXE)
-
-![Mpol(C4 bomb made by AT89C51)](https://github.com/MartinxMax/Mpol)
-
-![MTO(STM32 Remote control stepper motor)](https://github.com/MartinxMax/MTO)
-
-![MDPG(DHCP Starvation Attacks)](https://github.com/MartinxMax/MDPG)
-
-![MDPG_U(Automated DHCP flooding attacks V2.4[GUI])](https://github.com/MartinxMax/MDPG_U)
-
-![Web-crawlers-get-web-links(Crawl all links under the specified webpage)](https://github.com/MartinxMax/Web-crawlers-get-web-links)
-
-![Martin_Video_Hacker-V1.0(Hot key trigger to take pictures)](https://github.com/MartinxMax/Martin_Video_Hacker-V1.0)
+![hackerman](https://example.com/hackerman.gif)
 
 
 
-![图片名称](./China.gif) 
+## S-H4CK13 @ Мартин.   🇷🇺 🇨🇳🥷💻🔓
 
-![图片名称](./Russia.gif) 
+
+- [🌙 M0on](https://github.com/user/hackers-handbook)：Industrial automation, MCGS touch screen 0-day vulnerability exploitation tool.
+- [🌙 M0on (hack the MCGS)](https://github.com/MartinxMax/Mo0n)：Industrial automation, MCGS touch screen 0-day vulnerability exploitation tool.
+- [💀 S-Clustr (Zombie Network)](https://github.com/MartinxMax/S-Clustr): Unleash the power of the zombie network.
+- [🗣️ MChat-Gpt (Calling the chatgpt interface)](https://github.com/MartinxMax/MChat-Gpt): Achieve data sharing between internal and external networks.
+- [📞 Caller (Send voice to the victim)](https://github.com/MartinxMax/Caclert): Terrify your targets with unsettling messages.
+- [🐜 Anteater (Obtain sensitive information)](https://github.com/MartinxMax/Anteater): Exploit directories for hidden secrets.
+- [📷 Nets3e (Stealing photos of victims)](https://github.com/MartinxMax/Nets3e): Invade privacy and extract personal images.
+- [🌙 Night_of_19 (Switch the rebound shell session)](https://github.com/MartinxMax/Night_of_19): Take control through the darkness.
+- [📚 MAPI (API library)](https://github.com/MartinxMax/MAPI): A comprehensive library for advanced API manipulation.
+- [🔍 MartSQLI (Automatic SQL injection)](https://github.com/MartinxMax/MartSQLI): Extract server configuration information with ease.
+- [⚙️ MCGS_DD (Attack industrial network devices)](https://github.com/MartinxMax/MCGS_DD): Execute targeted assaults on industrial systems.
+- [📂 MSSRF (Server sensitive file collection)](https://github.com/MartinxMax/MSSRF): Gather sensitive files from targeted servers.
+- [📤 GitPush (Github Push)](https://github.com/MartinxMax/GitPush): Manipulate and push code changes at will.
+- [💥 MCollider (Digital Blasting MD5)](https://github.com/MartinxMax/MCollider): Crush cryptographic hashes into oblivion.
+- [📦 MBAK (Backup file explosion)](https://github.com/MartinxMax/MBAK): Unleash chaos upon backup systems.
+- [🔵 MRaider (Bluetooth near-source penetration attack)](https://github.com/MartinxMax/MRaider): Breach Bluetooth connections with finesse.
+- [🔐 MSSTI (Verification SSTI vulnerability)](https://github.com/MartinxMax/MSSTI): Test and exploit Server-Side Template Injection (SSTI) vulnerabilities.
+- [🔥 MAntagonist (PHP pseudo protocol file read explosion)](https://github.com/MartinxMax/MAntagonist): Unleash attacks by tricking PHP into reading malicious files.
+- [🐶 MDOG_GGB (XSS tool)](https://github.com/MartinxMax/MDOG_GGB): Manipulate web pages with Cross-Site Scripting (XSS) attacks.
+- [🔏 MPHP (Verification ThinkPHP vulnerability)](https://github.com/MartinxMax/MPHP): Validate and exploit ThinkPHP vulnerabilities.
+- [💣 MBlast (Sensitive character filtering detection analysis)](https://github.com/MartinxMax/MBlast): Analyze and bypass sensitive character filtering in web applications.
+- [🕹️ Regulator (Leave the automatic screen)](https://github.com/MartinxMax/Regulator): Automate screen capturing for surveillance purposes.
+- [🔒 Mole (Web hijacking using LD_PRLAOD function hijacking)](https://github.com/MartinxMax/Mole): Hijack and control web servers using advanced techniques.
+- [🔓 MXXE (XXE vulnerability data receiver)](https://github.com/MartinxMax/MXXE): Exploit XML External Entity (XXE) vulnerabilities to access sensitive data.
+- [⏳ Mpol (C4 bomb made by AT89C51)](https://github.com/MartinxMax/Mpol): Detonate AT89C51-based C4 bombs remotely.
+- [🎮 MTO (STM32 Remote control stepper motor)](https://github.com/MartinxMax/MTO): Control stepper motors remotely using STM32 microcontrollers.
+- [🌐 MDPG (DHCP Starvation Attacks)](https://github.com/MartinxMax/MDPG): Overwhelm DHCP servers with starvation attacks.
+- [📋 MDPG_U (Automated DHCP flooding attacks V2.4 [GUI])](https://github.com/MartinxMax/MDPG_U): Perform automated DHCP flooding attacks with a user-friendly interface.
+- [🕸️ Web-crawlers-get-web-links (Crawl all links under the specified webpage)](https://github.com/MartinxMax/Web-crawlers-get-web-links): Extract all links from specified web pages.
+- [📸 Martin_Video_Hacker-V1.0 (Hot key trigger to capture pictures)](https://github.com/MartinxMax/Martin_Video_Hacker-V1.0): Capture images using hotkeys.
+
+  
 
 
 
