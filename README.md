@@ -6,6 +6,7 @@
 # S-H4CK13 @ Мартин.   🇷🇺 🇨🇳🥷💻🔓
 
 
+- [💀 S-Clustr-Ring-Network (Zombie Network)](https://github.com/MartinxMax/S-Clustr-Ring): Unleash the power of the zombie network.
 - [🚪 Simple_Door (New wooden door)](https://github.com/MartinxMax/Simple_Door)：Using a network cable and a 51 micro controller to make a door switch.
 - [🌙 M0on (hack the MCGS)](https://github.com/MartinxMax/Mo0n)：Industrial automation, MCGS touch screen 0-day vulnerability exploitation tool.
 - [💀 S-Clustr (Zombie Network)](https://github.com/MartinxMax/S-Clustr): Unleash the power of the zombie network.
