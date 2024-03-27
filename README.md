@@ -9,6 +9,7 @@
   <img src="./Maptnh.jpg" alt="Description">
 </p>
 
+- [🥽 CheatFetcher (游戏作弊器高速下载器)](https://github.com/MartinxMax/CheatFetcher): Flingtrainer.
 - [🌙 M0on v1.2 (hack the MCGS)](https://github.com/MartinxMax/Mo0n_V1.2): Industrial automation, MCGS touch screen 0-day vulnerability exploitation tool.
 - [💀 S-Clustr-Ring-Network (Zombie Network)](https://github.com/MartinxMax/S-Clustr-Ring): Unleash the power of the zombie network.
 - [🚪 Simple_Door (New wooden door)](https://github.com/MartinxMax/Simple_Door)：Using a network cable and a 51 micro controller to make a door switch.
