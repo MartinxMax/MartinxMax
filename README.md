@@ -9,7 +9,7 @@
   <img src="./Maptnh.jpg" alt="Description">
 </p>
 
-- [🤿 NAPLISTENER (Vulnhub walkthough)](https://github.com/MartinxMax/vulnhub-wp): vulnhub walkthough tool
+- [🤿 Vunlhub-wp (Vulnhub walkthough)](https://github.com/MartinxMax/vulnhub-wp): vulnhub walkthough tool
 - [🧿 NAPLISTENER (APT-REF2924-Backdoor)](https://github.com/MartinxMax/NAPLISTENER): APT-REF2924 backdoor scanner.
 - [🥽 CheatFetcher (game cheat high-speed download)](https://github.com/MartinxMax/CheatFetcher): Flingtrainer.
 - [🌙 M0on v1.2 (MCGS)](https://github.com/MartinxMax/Mo0n_V1.2): The MCGS industrial networks touchscreen zero-day vulnerabilities.
