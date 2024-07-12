@@ -9,6 +9,7 @@
   <img src="./13.png" alt="Description">
 </p>
 
+- [🎃 Inferno](https://github.com/MartinxMax/Inferno):EtherNet/IP OT Network hacker tool.
 - [🔎 Image To Ascii](https://github.com/MartinxMax/ImageToAscii):Convert website images to Ascii for online.
 - [🎭 H4vdo (H4vdo)](https://github.com/MartinxMax/H4vdo): RTMP lock screen playback video tool, you can send payload to the target, the target's screen plays content. The target cannot operate the computer.
 - [🤿 Vunlhub-wp (Vulnhub walkthough)](https://github.com/MartinxMax/vulnhub-wp): vulnhub walkthough tool
