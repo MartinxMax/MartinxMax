@@ -6,7 +6,7 @@
 # S-H4CK13 @ Мартин.   🇷🇺 🇨🇳🥷💻🔓
 
 <p align="center">
-  <img src="./13.png" alt="Description">
+  <img src="./s13.png" alt="Description">
 </p>
 
 - [🎃 Inferno](https://github.com/MartinxMax/Inferno):EtherNet/IP OT Network hacker tool.
