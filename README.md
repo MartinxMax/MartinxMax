@@ -11,6 +11,16 @@
   <img src="./s13.png" alt="Description">
 </p>
 
+==================================================================
+
+S-Clustr This tool exists in two versions simultaneously:
+
+Ring Network Upgrade Version (high anonymity, full functionality, recommended): https://github.com/MartinxMax/S-Clustr/releases/tag/S-Clustr-V3.0
+
+Basic TCP Previous Version (unsafe, not recommended, stable): https://github.com/MartinxMax/S-Clustr-Ring/releases/tag/S-Clustr_Ring
+
+==================================================================
+
 - [💉 MSQP](https://github.com/MartinxMax/MSQP):This is a MySQL privilege escalation tool.
 - [🩺 Nessus-M](https://github.com/MartinxMax/Nessus-M):A brute-force tool for Nessus vulnerability scanner login interface.
 - [🎃 Inferno](https://github.com/MartinxMax/Inferno):EtherNet/IP OT Network hacker tool.
