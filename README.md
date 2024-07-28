@@ -2,9 +2,9 @@
  
 # >>>Кто я?<<<
 
-<p align="center">
-  <img src="./TEAM.png" alt="Description">
-</p>
+ 
+  <img src="./TEAM.png" alt="Description"/>
+ 
 
 
 # S-H4CK13 @ Мартин.
