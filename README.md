@@ -3,7 +3,7 @@
 # >>>Кто я?<<<
 
  
-  <img src="./TEAM.png" alt="Description"/>
+  <img src="./TEAM_Big.png" alt="Description"/>
  
 
 
