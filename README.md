@@ -3,7 +3,7 @@
 # >>>Кто я?<<<
 
  
-  <img src="./ALL1.png" alt="Description"/>
+  <img src="./ALL2.png" alt="Description"/>
  
 
 
