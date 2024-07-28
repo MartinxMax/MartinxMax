@@ -61,10 +61,7 @@ Basic TCP Previous Version (unsafe, not recommended, stable): https://github.com
 - [📋 MDPG_U (Automated DHCP flooding attacks V2.4 / GUI)](https://github.com/MartinxMax/MDPG_U): Automated DHCP flooding attacks with a user-friendly interface.
 - [🕸️ Web-crawlers-get-web-links (Crawl all links under the specified webpage)](https://github.com/MartinxMax/Web-crawlers-get-web-links): Extracts all links from specified web pages.
 - [📸 Martin_Video_Hacker-V1.0 (Hot key trigger to capture Pictures)](https://github.com/MartinxMax/Martin_Video_Hacker-V1.0): Captures images using hotkeys.
-  
-<p align="center">
-  <img src="./logo2.png" alt="Description">
-</p>
+
  
 
 
