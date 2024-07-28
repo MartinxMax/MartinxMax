@@ -1,19 +1,15 @@
  
  
-# >>>Не ограничивайте свои действия виртуальным миром.<<<
+# >>>Кто я?<<<
 
 <p align="center">
-  <img src="./H4CK13.png" alt="Description">
+  <img src="./TEAM.png" alt="Description">
 </p>
 
 
-# S-H4CK13 @ Мартин.   🇷🇺 🇨🇳🥷💻🔓
+# S-H4CK13 @ Мартин.
 
 <h1>YouTube:https://www.youtube.com/@Martin3x_x3</h1>
-
-<p align="center">
-  <img src="./s13.png" alt="Description">
-</p>
 
 ==================================================================
 
