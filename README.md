@@ -12,6 +12,7 @@
 <h1>YouTube:https://www.youtube.com/@Martin3x_x3</h1>
 
 - [💀 S-Clustr (Zombie Network)](https://github.com/MartinxMax/S-Clustr/releases): A botnet.
+- [🐯 trp00f](https://github.com/MartinxMax/trp00f): Automated privilege escalation.
 - [🧨 Pany](https://github.com/MartinxMax/pany):File Read Vulnerability Exploitation Tool.
 - [💉 MSQP](https://github.com/MartinxMax/MSQP):This is a MySQL privilege escalation tool.
 - [🩺 Nessus-M](https://github.com/MartinxMax/Nessus-M):A brute-force tool for Nessus vulnerability scanner login interface.
