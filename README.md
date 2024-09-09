@@ -12,6 +12,7 @@
 <h1>B:https://martinxmax.github.io/</h1>
 <h1>YouTube:https://www.youtube.com/@Martin3x_x3</h1>
 
+- [🐻 ROPS (ROP chains)](https://github.com/MartinxMax/ROPS): A script for the quick and automated construction of ROP (Return-Oriented Programming) chains to generate payloads for ROP attacks.
 - [💀 S-Clustr (Zombie Network)](https://github.com/MartinxMax/S-Clustr/releases): A botnet.
 - [🐯 trp00f](https://github.com/MartinxMax/trp00f): Automated privilege escalation.
 - [🧨 Pany](https://github.com/MartinxMax/pany):File Read Vulnerability Exploitation Tool.
