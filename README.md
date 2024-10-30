@@ -12,6 +12,9 @@
 <h1>B:https://martinxmax.github.io/</h1>
 <h1>YouTube:https://www.youtube.com/@Martin3x_x3</h1>
 
+
+- [👾 Control-Chaos (CTF)](https://github.com/MartinxMax/Control-Chaos): In Control-Chaos, participants will confront real-world security issues and the vulnerabilities of industrial control systems, unlocking hidden secrets and revealing the intricate narratives behind them. Each task is not just a technical challenge but also an interactive story, allowing participants to deepen their understanding of the unfolding plot while solving problems.
+
 - [🐻 ROPS (ROP chains)](https://github.com/MartinxMax/ROPS): A script for the quick and automated construction of ROP (Return-Oriented Programming) chains to generate payloads for ROP attacks.
 - [💀 S-Clustr (Zombie Network)](https://github.com/MartinxMax/S-Clustr/releases): A botnet.
 - [🐯 trp00f](https://github.com/MartinxMax/trp00f): Automated privilege escalation.
