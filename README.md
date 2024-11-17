@@ -4,6 +4,7 @@
 
  
   <img src="./ALL2.png" alt="Description"/>
+   <img src="./TEAM.png" alt="Description"/>
  
 <h1>✈ t.me/Maptnh4Russia</h1>
 
