@@ -13,6 +13,7 @@
 <h1>B:https://martinxmax.github.io/</h1>
 <h1>YouTube:https://www.youtube.com/@Martin3x_x3</h1>
 
+- [👹 Tyrant](https://github.com/MartinxMax/Tyrant): Tyrant is an SUID binary privilege escalation tool that allows you to obtain elevated privileges or facilitate lateral movement more efficiently..
 
 - [👾 Control-Chaos (CTF)](https://github.com/MartinxMax/Control-Chaos): In Control-Chaos, participants will confront real-world security issues and the vulnerabilities of industrial control systems, unlocking hidden secrets and revealing the intricate narratives behind them. Each task is not just a technical challenge but also an interactive story, allowing participants to deepen their understanding of the unfolding plot while solving problems.
 
