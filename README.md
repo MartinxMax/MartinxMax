@@ -33,7 +33,7 @@
 - [🧿 NAPLISTENER (APT-REF2924-Backdoor)](https://github.com/MartinxMax/NAPLISTENER): APT-REF2924 backdoor scanner.
 - [🥽 CheatFetcher (game cheat high-speed download)](https://github.com/MartinxMax/CheatFetcher): Flingtrainer.
 - [🌙 M0on v1.2 (MCGS)](https://github.com/MartinxMax/Mo0n_V1.2): The MCGS industrial networks touchscreen zero-day vulnerabilities.
-- [🚪 Simple_Door (51 microcontroller entrance guard)](https://github.com/MartinxMax/Simple_Door): An entrance guard utilizing 51 single-chip microcontrollers, and broken with the Arduino 
+- [🚪 Simple_Door (51 microcontroller entrance guard)](https://github.com/MartinxMax/Simple_Door): An entrance guard utilizing 51 microcontrollers, and hacked with the Arduino. 
 - [🗣️ MChat-Gpt (Chatgpt)](https://github.com/MartinxMax/MChat-Gpt): Chatgpt connected to the LAN to provide query service for all users in the Intranet.
 - [📞 Caller (sending voice)](https://github.com/MartinxMax/Caclert): A malware generator that can reverse connect to attackers, allowing them to send voice messages.
 - [🐜 Anteater (directory sensitive information)](https://github.com/MartinxMax/Anteater): Accesses specified directories for sensitive information, useful in penetration testing to obtain 
