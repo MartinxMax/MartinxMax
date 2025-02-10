@@ -14,6 +14,9 @@
 <h1>YouTube:https://www.youtube.com/@Martin3x_x3</h1>
 
 
+- [☃ KTOR](https://github.com/MartinxMax/KTOR): KTOR is a tool specifically designed for lateral movement in Linux. With this tool, you can quickly scan internal HTTP services for further network penetration, achieving fileless scanning.
+
+
 - [🦎 Chameleon](https://github.com/MartinxMax/Chameleon): A chameleon program capable of cross-compiling C files and generating executable files for multiple platforms in a single operation.
 
 - [👹 Tyrant](https://github.com/MartinxMax/Tyrant): Tyrant is an SUID binary privilege escalation tool that allows you to obtain elevated privileges or facilitate lateral movement more efficiently.
