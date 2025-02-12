@@ -6,13 +6,8 @@
   <img src="./ALL2.png" alt="Description"/>
    <img src="./TEAM.png" alt="Description"/>
  
-<h1>✈ t.me/Maptnh4Russia</h1>
 
 # S-H4CK13 @ Мартин.
-
-<h1>B:https://martinxmax.github.io/</h1>
-<h1>YouTube:https://www.youtube.com/@Martin3x_x3</h1>
-
 
 - [☃ KTOR](https://github.com/MartinxMax/KTOR): KTOR is a tool specifically designed for lateral movement in Linux. With this tool, you can quickly scan internal HTTP services for further network penetration, achieving fileless scanning.
 
