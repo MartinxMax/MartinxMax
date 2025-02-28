@@ -9,6 +9,9 @@
 
 # S-H4CK13 @ Мартин.
 
+
+- [ツ FFbuster](https://github.com/MartinxMax/FFbuster): FFbuster is a script based on ffuf for brute-forcing. It supports fast subdomain enumeration and automatically brute-forces directories based on discovered subdomains.
+  
 - [☃ KTOR](https://github.com/MartinxMax/KTOR): KTOR is a tool specifically designed for lateral movement in Linux. With this tool, you can quickly scan internal HTTP services for further network penetration, achieving fileless scanning.
 
 
