@@ -9,6 +9,10 @@
 
 # S-H4CK13 @ Мартин.
 
+- [SKBD](https://github.com/MartinxMax/bofz): Linux-SSH Backdoor Injection Persistence Control Tool.
+
+- [DeepDarkSea](https://github.com/MartinxMax/DeepDarkSea): This is a Flask application for LAN-based file sharing and real-time anonymous chatting..
+  
 - [SKBD](https://github.com/MartinxMax/skbd): Linux-SSH Backdoor Injection Persistence Control Tool.
 
 - [D-link](https://github.com/MartinxMax/dlink): D-link is a lightweight Linux file synchronization tool written in C++.
