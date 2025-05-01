@@ -9,9 +9,9 @@
 
 # S-H4CK13 @ Мартин.
 
-- [SKBD](https://github.com/MartinxMax/bofz): Linux-SSH Backdoor Injection Persistence Control Tool.
+- [BOFZ](https://github.com/MartinxMax/bofz): BOFZ is a simple Buffer Overflow Scanner designed to detect buffer overflow vulnerabilities in a given executable.This tool is useful for quickly testing applications or binaries for common security flaws, particularly those that arise from improper bounds checking when handling user input.
 
-- [DeepDarkSea](https://github.com/MartinxMax/DeepDarkSea): This is a Flask application for LAN-based file sharing and real-time anonymous chatting..
+- [DeepDarkSea](https://github.com/MartinxMax/DeepDarkSea): This is a Flask application for LAN-based file sharing and real-time anonymous chatting.
   
 - [SKBD](https://github.com/MartinxMax/skbd): Linux-SSH Backdoor Injection Persistence Control Tool.
 
