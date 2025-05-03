@@ -3,8 +3,7 @@
 # >>>Кто я?<<<
 
    <img src="./TEAM3.png" alt="Description"/> 
-  <img src="./ALL2.png" alt="Description"/>
-   <img src="./TEAM.png" alt="Description"/>
+ 
  
 
 # S-H4CK13 @ Мартин.
