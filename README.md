@@ -8,6 +8,9 @@
 
 # S-H4CK13 @ Мартин.
 
+
+- [smbd](https://github.com/MartinxMax/smbd): SMB-Downloader is a simple Bash script that automates the process of downloading files from shared directories over SMB/CIFS protocol. The tool is designed to interact with remote SMB shares and download their contents to a local directory.
+- 
 - [BOFZ](https://github.com/MartinxMax/bofz): BOFZ is a simple Buffer Overflow Scanner designed to detect buffer overflow vulnerabilities in a given executable.This tool is useful for quickly testing applications or binaries for common security flaws, particularly those that arise from improper bounds checking when handling user input.
 
 - [DeepDarkSea](https://github.com/MartinxMax/DeepDarkSea): This is a Flask application for LAN-based file sharing and real-time anonymous chatting.
@@ -38,7 +41,8 @@
 - [🎭 H4vdo (H4vdo)](https://github.com/MartinxMax/H4vdo): RTMP lock screen playback video tool, you can send payload to the target, the target's screen plays content. The target cannot operate the computer.
 - [🤿 Vunlhub-wp (Vulnhub walkthough)](https://github.com/MartinxMax/vulnhub-wp): vulnhub walkthough tool
 - [🧿 NAPLISTENER (APT-REF2924-Backdoor)](https://github.com/MartinxMax/NAPLISTENER): APT-REF2924 backdoor scanner.
-- [🥽 CheatFetcher (game cheat high-speed download)](https://github.com/MartinxMax/CheatFetcher): Flingtrainer.
+- [🥽 CheatFetcher (game cheat high-speed download)](https://github.com/MartinxMax/CheatFetcher)
+: Flingtrainer.
 - [🌙 M0on v1.2 (MCGS)](https://github.com/MartinxMax/Mo0n_V1.2): The MCGS industrial networks touchscreen zero-day vulnerabilities.
 - [🚪 Simple_Door (51 microcontroller entrance guard)](https://github.com/MartinxMax/Simple_Door): An entrance guard utilizing 51 microcontrollers, and hacked with the Arduino. 
 - [🗣️ MChat-Gpt (Chatgpt)](https://github.com/MartinxMax/MChat-Gpt): Chatgpt connected to the LAN to provide query service for all users in the Intranet.
