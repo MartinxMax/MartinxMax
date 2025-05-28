@@ -8,6 +8,9 @@
 
 # S-H4CK13 @ Мартин.
 
+- [gitany](https://github.com/MartinxMax/gitany): GitAny is a Python-based tool that allows you to search the latest GitHub projects of the day without logging in. It supports fuzzy search, conditional filtering, and visual analysis of repository data.
+
+
 - [bmc](https://github.com/MartinxMax/bmc): A distributed IoT C2 architecture based on Bluetooth MAC address detection nodes, capable of interacting with S-Cluster.
 
 - [smbd](https://github.com/MartinxMax/smbd): SMB-Downloader is a simple Bash script that automates the process of downloading files from shared directories over SMB/CIFS protocol. The tool is designed to interact with remote SMB shares and download their contents to a local directory.
