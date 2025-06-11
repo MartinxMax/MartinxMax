@@ -8,6 +8,8 @@
 
 # S-H4CK13 @ Мартин.
 
+- [matta4ck](https://github.com/MartinxMax/matta4ck): Matlab <= 2025 Vulnerability Type: Remote Code Execution (RCE).
+  
 - [gitany](https://github.com/MartinxMax/gitany): GitAny is a Python-based tool that allows you to search the latest GitHub projects of the day without logging in. It supports fuzzy search, conditional filtering, and visual analysis of repository data.
 
 
