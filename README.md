@@ -10,6 +10,9 @@
 # S-H4CK13 @ Мартин.
 
 
+- [ros2_auto_install](https://github.com/MartinxMax/ros2_auto_install):Fastest installation: ROS2 + VSCode completed within 5 minutes.
+
+
 - [tolapi](https://github.com/MartinxMax/tolapi):Use the API to generate file upload/download commands.
 
 - [EP-SPY](https://github.com/MartinxMax/ep-spy):Based on GI6E encoding, a wireless radio communication espionage tool to protect your privacy.
