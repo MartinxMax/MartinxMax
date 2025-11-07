@@ -1,117 +1,128 @@
 (() => {
-const html = `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Matrix + ASCII + Music</title>
-<style>
-html,body{height:100%;margin:0;padding:0;background:#000;overflow:hidden}
-.matrix-container{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-#matrix{width:100%;height:100%;display:block}
-.ascii-art{
-position:absolute;color:#00ff99;white-space:pre;text-align:center;font-family:monospace;font-size:clamp(10px,2vw,20px);
-line-height:1;pointer-events:none;text-shadow:0 1px 0 rgba(0,0,0,0.6);
-}
-.audio-hint{
-position:fixed;right:14px;bottom:14px;z-index:99999;background:rgba(0,0,0,0.6);
-color:#e6f6ea;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;
-font-family:system-ui,Arial,monospace;font-size:13px;cursor:pointer;display:none;
-}
-</style>
-</head>
-<body>
-<audio id="bgAudio" autoplay loop playsinline></audio>
-<div class="matrix-container">
-<canvas id="matrix"></canvas>
-<pre id="ascii" class="ascii-art">
+const style = document.createElement('style');
+style.textContent = `
+body { background-color: black; overflow: hidden; margin:0; padding:0; }
+.matrix-container { position: absolute; top:0; left:0; right:0; bottom:0; display:flex; align-items:center; justify-content:center; }
+#matrix { width: 100%; height: 100%; display:block; }
+.ascii-art { position: absolute; color:#00ff99; white-space: pre; text-align:center; font-family: monospace; font-size:12px; line-height:12px; pointer-events:none; }
+`;
+document.head.appendChild(style);
+
+const container = document.createElement('div');
+container.className = 'matrix-container';
+const canvas = document.createElement('canvas');
+canvas.id = 'matrix';
+container.appendChild(canvas);
+
+const art = document.createElement('pre');
+art.className = 'ascii-art';
+art.textContent = `
 ----------------------------------------------------⠀⠀⠀
   Кто я ?     
-test
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠟⠃⠀⠀⠙⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⠀⠀⠀⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠾⢛⠒⠀⠀⠀⠀⠀⠀⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣶⣄⡈⠓⢄⠠⡀⠀⠀⠀⣄⣷⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣷⠀⠈⠱⡄⠑⣌⠆⠀⠀⡜⢻⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡿⠳⡆⠐⢿⣆⠈⢿⠀⠀⡇⠘⡆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣷⡇⠀⠀⠈⢆⠈⠆⢸⠀⠀⢣⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣧⠀⠀⠈⢂⠀⡇⠀⠀⢨⠓⣄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣦⣤⠖⡏⡸⠀⣀⡴⠋⠀⠈⠢⡀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠁⣹⣿⣿⣿⣷⣾⠽⠖⠊⢹⣀⠄⠀⠀⠀⠈⢣⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⣇⣰⢫⢻⢉⠉⠀⣿⡆⠀⠀⡸⡏⠀⠀⠀⠀⠀⠀⢇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⡇⡇⠈⢸⢸⢸⠀⠀⡇⡇⠀⠀⠁⠻⡄⡠⠂⠀⠀⠀⠘
+⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠛⠓⡇⠀⠸⡆⢸⠀⢠⣿⠀⠀⠀⠀⣰⣿⣵⡆⠀⠀⠀⠀
+⠈⢻⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡿⣦⣀⡇⠀⢧⡇⠀⠀⢺⡟⠀⠀⠀⢰⠉⣰⠟⠊⣠⠂⠀⡸
+⠀⠀⢻⣿⣿⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢧⡙⠺⠿⡇⠀⠘⠇⠀⠀⢸⣧⠀⠀⢠⠃⣾⣌⠉⠩⠭⠍⣉⡇
+⠀⠀⠀⠻⣿⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣞⣋⠀⠈⠀⡳⣧⠀⠀⠀⠀⠀⢸⡏⠀⠀⡞⢰⠉⠉⠉⠉⠉⠓⢻⠃
+⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⢀⣀⠠⠤⣤⣤⠤⠞⠓⢠⠈⡆⠀⢣⣸⣾⠆⠀⠀⠀⠀⠀⢀⣀⡼⠁⡿⠈⣉⣉⣒⡒⠢⡼⠀
+⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣎⣽⣶⣤⡶⢋⣤⠃⣠⡦⢀⡼⢦⣾⡤⠚⣟⣁⣀⣀⣀⣀⠀⣀⣈⣀⣠⣾⣅⠀⠑⠂⠤⠌⣩⡇⠀
+⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡁⣺⢁⣞⣉⡴⠟⡀⠀⠀⠀⠁⠸⡅⠀⠈⢷⠈⠏⠙⠀⢹⡛⠀⢉⠀⠀⠀⣀⣀⣼⡇⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⡟⢡⠖⣡⡴⠂⣀⣀⣀⣰⣁⣀⣀⣸⠀⠀⠀⠀⠈⠁⠀⠀⠈⠀⣠⠜⠋⣠⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⡟⢿⣿⣿⣷⡟⢋⣥⣖⣉⠀⠈⢁⡀⠤⠚⠿⣷⡦⢀⣠⣀⠢⣄⣀⡠⠔⠋⠁⠀⣼⠃⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⡄⠈⠻⣿⣿⢿⣛⣩⠤⠒⠉⠁⠀⠀⠀⠀⠀⠉⠒⢤⡀⠉⠁⠀⠀⠀⠀⠀⢀⡿⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣤⣤⠴⠟⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⠤⠀⠀⠀⠀⠀⢩⠇⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         Maptnh@S-H4CK13   ⠀⠀
 ----------------------------------------------------⠀⠀⠀
-</pre>
-</div>
-<div id="audioHint" class="audio-hint">Click to enable sound</div>
-<script>
-window.addEventListener('load',()=>{
-const audio=document.getElementById('bgAudio');
-const hint=document.getElementById('audioHint');
-const canvas=document.getElementById('matrix');
-const art=document.getElementById('ascii');
-const ctx=canvas.getContext('2d');
-const audioURL='https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
-const characters='S-H4CK13 Maptnh Russia';
-const chars=characters.split('');
-let columns=0;
-let fontSize=16;
-const matrix=[];
+`;
+container.appendChild(art);
+document.body.appendChild(container);
 
-async function initAudio(){
-try{
-const res=await fetch(audioURL,{mode:'cors'});
-if(!res.ok)throw new Error('fetch fail '+res.status);
-const blob=await res.blob();
-audio.src=URL.createObjectURL(blob);
-}catch(e){audio.src=audioURL;}
-audio.muted=true;
-try{
-await audio.play();
-setTimeout(async()=>{
-try{audio.muted=false;await audio.play();}catch(e){hint.style.display='block';}
-},500);
-}catch(err){hint.style.display='block';}
-hint.addEventListener('click',async()=>{
-try{audio.muted=false;await audio.play();hint.style.display='none';}catch(e){
-audio.volume=0.2;audio.muted=false;try{await audio.play();hint.style.display='none';}catch(_){alert('Play blocked');}
-}
-});
+const context = canvas.getContext('2d');
+const characters = 'S-H4CK13 Maptnh Russia';
+const charactersArray = characters.split('');
+let fontSize = 16;
+let columns = 0;
+const matrix = [];
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    columns = Math.floor(canvas.width / fontSize);
+    matrix.length = 0;
+    for (let i = 0; i < columns; i++) matrix[i] = 1;
+    art.style.left = (window.innerWidth - art.offsetWidth)/2 + 'px';
+    art.style.top = (window.innerHeight - art.offsetHeight)/2 + 'px';
 }
 
-function resizeCanvas(){
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-fontSize=Math.floor(Math.min(window.innerWidth,window.innerHeight)/60);
-columns=Math.floor(canvas.width/fontSize);
-matrix.length=0;
-for(let i=0;i<columns;i++)matrix[i]=Math.floor(Math.random()*canvas.height/fontSize);
-if(art.offsetWidth>0){
-art.style.left=(canvas.width-art.offsetWidth)/2+'px';
-art.style.top=(canvas.height-art.offsetHeight)/2+'px';
-}else{
-requestAnimationFrame(resizeCanvas);
-}
-}
-
-function drawMatrix(){
-ctx.fillStyle='rgba(0,0,0,0.05)';
-ctx.fillRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle='#aaaaaa';
-ctx.font=fontSize+'px monospace';
-for(let i=0;i<matrix.length;i++){
-const text=chars[Math.floor(Math.random()*chars.length)];
-ctx.fillText(text,i*fontSize,matrix[i]*fontSize);
-if(matrix[i]*fontSize>canvas.height&&Math.random()>0.975)matrix[i]=0;
-matrix[i]++;
-}
+function drawMatrix() {
+    context.fillStyle = 'rgba(0,0,0,0.05)';
+    context.fillRect(0,0,canvas.width,canvas.height);
+    context.fillStyle = '#aaaaaa';
+    context.font = fontSize + 'px monospace';
+    for (let i=0;i<matrix.length;i++){
+        const text = charactersArray[Math.floor(Math.random()*charactersArray.length)];
+        context.fillText(text,i*fontSize,matrix[i]*fontSize);
+        if(matrix[i]*fontSize>canvas.height && Math.random()>0.975) matrix[i]=0;
+        matrix[i]++;
+    }
 }
 
 function animateMatrix(){
-drawMatrix();
-requestAnimationFrame(animateMatrix);
+    drawMatrix();
+    requestAnimationFrame(animateMatrix);
+}
+
+async function initAudio(){
+    const audio = document.createElement('audio');
+    audio.id = 'bgAudio';
+    audio.autoplay = true;
+    audio.loop = true;
+    audio.playsInline = true;
+    document.body.appendChild(audio);
+    const hint = document.createElement('div');
+    hint.id='audioHint';
+    hint.className='audio-hint';
+    hint.textContent='Click to enable sound';
+    hint.style.position='fixed';
+    hint.style.right='14px';
+    hint.style.bottom='14px';
+    hint.style.display='none';
+    document.body.appendChild(hint);
+    const audioURL='https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
+    try{
+        const res=await fetch(audioURL,{mode:'cors'});
+        if(!res.ok) throw new Error('fetch fail '+res.status);
+        const blob=await res.blob();
+        audio.src=URL.createObjectURL(blob);
+    }catch(e){ audio.src=audioURL; }
+    audio.muted=true;
+    try{
+        await audio.play();
+        setTimeout(async()=>{
+            try{ audio.muted=false; await audio.play(); } catch(e){ hint.style.display='block'; }
+        },500);
+    }catch(err){ hint.style.display='block'; }
+    hint.addEventListener('click',async()=>{
+        try{ audio.muted=false; await audio.play(); hint.style.display='none'; }
+        catch(e){ audio.volume=0.2; audio.muted=false; try{ await audio.play(); hint.style.display='none'; }catch(_){ alert('Play blocked'); } }
+    });
 }
 
 window.addEventListener('resize',resizeCanvas);
 resizeCanvas();
-initAudio();
 animateMatrix();
-});
-</script>
-</body>
-</html>
-`;
-document.open();
-document.write(html);
-document.close();
+initAudio();
 })();
