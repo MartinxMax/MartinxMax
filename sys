@@ -60,8 +60,17 @@ setInterval(() => {
 const audio = document.createElement('audio');
 audio.src = 'https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
 audio.loop = true;
-audio.addEventListener("canplay", () => {
-    audio.volume = 0.5;
-    audio.play().catch(()=>{});
-});
+audio.volume = 0.5;
 document.body.appendChild(audio);
+
+audio.play().catch(() => {
+    const startAudio = () => {
+        audio.play().catch(()=>{});
+        document.removeEventListener('click', startAudio);
+        document.removeEventListener('keydown', startAudio);
+        document.removeEventListener('touchstart', startAudio);
+    };
+    document.addEventListener('click', startAudio);
+    document.addEventListener('keydown', startAudio);
+    document.addEventListener('touchstart', startAudio);
+});
