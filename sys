@@ -1,108 +1,154 @@
+ 
 (() => {
-  const style = document.createElement('style');
-  style.textContent = `
-    body { background-color: black; overflow: hidden; margin:0; padding:0; }
-    .matrix-container {
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #matrix { width: 100%; height: 100%; display:block; }
-    .ascii-art {
-      position: absolute;
-      color: #00ff99;
-      white-space: pre;
-      text-align: center;
-      font-family: monospace;
-      font-size: 12px;
-      line-height: 12px;
-      pointer-events: none;  
-    }
-  `;
-  document.head.appendChild(style);
+  const html = `<!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Matrix Overwrite</title>
+    <style>
+      html,body{height:100%;margin:0;padding:0;background:#000;overflow:hidden}
+      .matrix-container{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+      #matrix{width:100%;height:100%;display:block}
+      .ascii-art{
+        position:absolute;
+        color:#00ff99;
+        white-space:pre;
+        text-align:center;
+        font-family:monospace;
+        line-height:1;
+        pointer-events:none;
+        left:50%;
+        top:50%;
+        transform-origin:center center;
+        will-change:transform;
+        max-width:92vw;
+        max-height:78vh;
+        overflow:hidden;
+      }
+      /* 可见但不侵入的提示（默认隐藏） */
+      .hint{position:fixed;right:14px;bottom:14px;z-index:99999;background:rgba(0,0,0,0.6);color:#e6f6ea;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;font-family:system-ui,Arial,monospace;font-size:13px;display:none}
+    </style>
+  </head>
+  <body>
+    <div class="matrix-container">
+      <canvas id="matrix"></canvas>
+      <pre class="ascii-art" id="asciiArt">
+----------------------------------------------------
+  Кто я ?     
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠟⠃⠀⠀⠙⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⠀⠀⠀⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠾⢛⠒⠀⠀⠀⠀⠀⠀⠀⢸⡆⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣶⣄⡈⠓⢄⠠⡀⠀⠀⠀⣄⣷⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣷⠀⠈⠱⡄⠑⣌⠆⠀⠀⡜⢻⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡿⠳⡆⠐⢿⣆⠈⢿⠀⠀⡇⠘⡆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣷⡇⠀⠀⠈⢆⠈⠆⢸⠀⠀⢣⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣧⠀⠀⠈⢂⠀⡇⠀⠀⢨⠓⣄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣦⣤⠖⡏⡸⠀⣀⡴⠋⠀⠈⠢⡀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠁⣹⣿⣿⣿⣷⣾⠽⠖⠊⢹⣀⠄⠀⠀⠀⠈⢣⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⣇⣰⢫⢻⢉⠉⠀⣿⡆⠀⠀⡸⡏⠀⠀⠀⠀⠀⠀⢇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⡇⡇⠈⢸⢸⢸⠀⠀⡇⡇⠀⠀⠁⠻⡄⡠⠂⠀⠀⠀⠘
+⢤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠛⠓⡇⠀⠸⡆⢸⠀⢠⣿⠀⠀⠀⠀⣰⣿⣵⡆⠀⠀⠀⠀
+⠈⢻⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡿⣦⣀⡇⠀⢧⡇⠀⠀⢺⡟⠀⠀⠀⢰⠉⣰⠟⠊⣠⠂⠀⡸
+⠀⠀⢻⣿⣿⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢧⡙⠺⠿⡇⠀⠘⠇⠀⠀⢸⣧⠀⠀⢠⠃⣾⣌⠉⠩⠭⠍⣉⡇
+⠀⠀⠀⠻⣿⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣞⣋⠀⠈⠀⡳⣧⠀⠀⠀⠀⠀⢸⡏⠀⠀⡞⢰⠉⠉⠉⠉⠉⠓⢻⠃
+⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⢀⣀⠠⠤⣤⣤⠤⠞⠓⢠⠈⡆⠀⢣⣸⣾⠆⠀⠀⠀⠀⠀⢀⣀⡼⠁⡿⠈⣉⣉⣒⡒⠢⡼⠀
+⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣎⣽⣶⣤⡶⢋⣤⠃⣠⡦⢀⡼⢦⣾⡤⠚⣟⣁⣀⣀⣀⣀⠀⣀⣈⣀⣠⣾⣅⠀⠑⠂⠤⠌⣩⡇⠀
+⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡁⣺⢁⣞⣉⡴⠟⡀⠀⠀⠀⠁⠸⡅⠀⠈⢷⠈⠏⠙⠀⢹⡛⠀⢉⠀⠀⠀⣀⣀⣼⡇⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⡟⢡⠖⣡⡴⠂⣀⣀⣀⣰⣁⣀⣀⣸⠀⠀⠀⠀⠈⠁⠀⠀⠈⠀⣠⠜⠋⣠⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⡟⢿⣿⣿⣷⡟⢋⣥⣖⣉⠀⠈⢁⡀⠤⠚⠿⣷⡦⢀⣠⣀⠢⣄⣀⡠⠔⠋⠁⠀⣼⠃⠀⠀
+----------------------------------------------------
+      </pre>
+    </div>
+    <div class="hint" id="hint">Matrix injected — no audio.</div>
 
-  // ==== HTML ====
-  const container = document.createElement('div');
-  container.className = 'matrix-container';
+    <script>
+ 
+      (function(){
+        const canvas = document.getElementById('matrix');
+        const art = document.getElementById('asciiArt');
+        const ctx = canvas.getContext('2d');
 
-  const canvas = document.createElement('canvas');
-  canvas.id = 'matrix';
-  container.appendChild(canvas);
+        let fontSize = 16;
+        let columns = 0;
+        let characters = 'S-H4CK13 Maptnh Russia';
+        const charsArr = characters.split('');
+        let drops = [];
 
-  const art = document.createElement('pre');
-  art.className = 'ascii-art';
-  art.textContent = `
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    Кто я ?
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡀⠀⠀⢀⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣤⣤⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢿⣿⣿⣿⣿⣿⣿⡿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⣀⣠⠀⣶⣤⣄⣉⣉⣉⣉⣠⣤⣶⠀⣄⣀⡀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⣶⣾⣿⣿⣿⣿⣦⣄⣉⣙⣛⣛⣛⣛⣋⣉⣠⣴⣿⣿⣿⣿⣷⣶⠀⠀⠀
-⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠻⠿⠿⠿⠿⠿⠿⠿⠿⠟⠛⠛⠛⠉⠉⠁⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⣆⠀⠀⠀⢠⡄⠀⠀⠀⣰⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢀⣠⣶⣾⣿⡆⠸⣿⣶⣶⣾⣿⣿⣷⣶⣶⣿⠇⢰⣿⣷⣶⣄⡀⠀⠀⠀
-⠀⠀⠺⠿⣿⣿⣿⣿⣿⣄⠙⢿⣿⣿⣿⣿⣿⣿⡿⠋⣠⣿⣿⣿⣿⣿⠿⠗⠀⠀
-⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣷⡄⠈⠙⠛⠛⠋⠁⢠⣾⣿⣿⣿⠟⠋⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⣀⣤⣬⣿⣿⣿⣇⠐⣿⣿⣿⣿⠂⣸⣿⣿⣿⣥⣤⣀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠘⠻⠿⠿⢿⣿⣿⣿⣧⠈⠿⠿⠁⣼⣿⣿⣿⡿⠿⠿⠟⠃⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⠀⣶⣦⠀⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        Maptnh@S-H4CK13   ⠀⠀
-  `;
-  container.appendChild(art);
-  document.body.appendChild(container);
+        function computeFontSize() {
+          const minDim = Math.min(window.innerWidth, window.innerHeight);
+          return Math.max(10, Math.floor(minDim / 60));
+        }
 
-  
-  const characters =
-    'S-H4CK13 Maptnh Russia';
-  const charactersArray = characters.split('');
-  const fontSize = 16;
-  const speed = 3;
-  const context = canvas.getContext('2d');
+        function measureAndScaleArt() {
+          art.style.fontSize = Math.max(10, Math.floor(Math.min(window.innerWidth, window.innerHeight) / 80)) + 'px';
+          const maxW = Math.floor(window.innerWidth * 0.92);
+          const maxH = Math.floor(window.innerHeight * 0.7);
+          const w = art.offsetWidth || 1;
+          const h = art.offsetHeight || 1;
+          const scale = Math.min(1, maxW / w, maxH / h);
+          art.style.transform = 'translate(-50%,-50%) scale(' + scale + ')';
+        }
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    columns = Math.floor(canvas.width / fontSize);
-    matrix.length = 0;
-    for (let i = 0; i < columns; i++) matrix[i] = 1;
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          fontSize = computeFontSize();
+          columns = Math.max(2, Math.floor(canvas.width / fontSize));
+          drops = new Array(columns).fill(0).map(() => Math.floor(Math.random() * Math.floor(canvas.height / fontSize)));
+          measureAndScaleArt();
+        }
+
+        function draw() {
+ 
+          ctx.fillStyle = 'rgba(0,0,0,0.06)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#aaaaaa';
+          ctx.font = fontSize + 'px monospace';
+          for (let i = 0; i < drops.length; i++) {
+            const ch = charsArr[Math.floor(Math.random() * charsArr.length)];
+            const x = i * fontSize + (fontSize / 4);
+            const y = drops[i] * fontSize;
+            ctx.fillText(ch, x, y);
+    
+            if (Math.random() > 0.98) drops[i] = 0;
+            drops[i]++;
+            if (drops[i] * fontSize > canvas.height) drops[i] = 0;
+          }
+        }
+
+        let rafId = null;
+        function loop() {
+          draw();
+          rafId = requestAnimationFrame(loop);
+        }
 
  
-    art.style.left = window.innerWidth / 2 - art.offsetWidth / 2 + 'px';
-    art.style.top = window.innerHeight / 2 - art.offsetHeight / 2 + 'px';
-  }
+        window.addEventListener('resize', () => {
+ 
+          clearTimeout(window.__matrixResizeTimer);
+          window.__matrixResizeTimer = setTimeout(resize, 120);
+        });
 
-  let columns;
-  const matrix = [];
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+ 
+        (function start(){
+          try { document.fonts && document.fonts.ready && document.fonts.ready.then(() => { resize(); loop(); }); }
+          catch(e){ resize(); loop(); }
+        })();
 
-  function drawMatrix() {
-    context.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    context.fillRect(0, 0, canvas.width, canvas.height);
+      
+        window.__stopMatrix = function(){
+          if (rafId) cancelAnimationFrame(rafId);
+          window.__matrixStopped = true;
+        };
+      })();
+    </script>
+  </body>
+  </html>`;
 
-    context.fillStyle = '#aaaaaa';
-    context.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < matrix.length; i++) {
-      const text =
-        charactersArray[Math.floor(Math.random() * charactersArray.length)];
-      context.fillText(text, i * fontSize, matrix[i] * fontSize);
-
-      if (matrix[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        matrix[i] = 0;
-      }
-      matrix[i]++;
-    }
-  }
-
-  function animateMatrix() {
-    drawMatrix();
-    requestAnimationFrame(animateMatrix);
-  }
-
-  animateMatrix();
+ 
+  document.open();
+  document.write(html);
+  document.close();
 })();
