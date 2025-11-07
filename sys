@@ -1,39 +1,40 @@
 (() => {
-  const style = document.createElement('style');
-  style.textContent = `
-    body { background-color: black; overflow: hidden; margin:0; padding:0; }
-    .matrix-container {
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #matrix { width: 100%; height: 100%; display:block; }
-    .ascii-art {
-      position: absolute;
-      color: #00ff99;
-      white-space: pre;
-      text-align: center;
-      font-family: monospace;
-      font-size: 12px;
-      line-height: 12px;
-      pointer-events: none;  
-    }
-  `;
-  document.head.appendChild(style);
+  window.addEventListener('load', () => {
+    const style = document.createElement('style');
+    style.textContent = `
+      body { background-color: black; overflow: hidden; margin:0; padding:0; }
+      .matrix-container {
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #matrix { width: 100%; height: 100%; display:block; }
+      .ascii-art {
+        position: absolute;
+        color: #00ff99;
+        white-space: pre;
+        text-align: center;
+        font-family: monospace;
+        font-size: 12px;
+        line-height: 12px;
+        pointer-events: none;  
+      }
+    `;
+    document.head.appendChild(style);
 
+  
+    const container = document.createElement('div');
+    container.className = 'matrix-container';
 
-  const container = document.createElement('div');
-  container.className = 'matrix-container';
+    const canvas = document.createElement('canvas');
+    canvas.id = 'matrix';
+    container.appendChild(canvas);
 
-  const canvas = document.createElement('canvas');
-  canvas.id = 'matrix';
-  container.appendChild(canvas);
-
-  const art = document.createElement('pre');
-  art.className = 'ascii-art';
-  art.textContent = `
+    const art = document.createElement('pre');
+    art.className = 'ascii-art';
+    art.textContent = `
  Oops!Run!!!!
 ░▐█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█▄☆
 ░███████████████████████
@@ -74,63 +75,71 @@
         Maptnh@S-H4CK13   ⠀⠀
 ----------------------------------------------------⠀⠀⠀
   `;
-  container.appendChild(art);
-  document.body.appendChild(container);
- 
-  const audio = document.createElement('audio');
-  audio.src = 'https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';  
-  audio.autoplay = true;
-  audio.loop = true;
-  audio.volume = 0.5; 
-  document.body.appendChild(audio);
-  
-  const characters =
-    'S-H4CK13 Maptnh Russia';
-  const charactersArray = characters.split('');
-  const fontSize = 16;
-  const speed = 3;
-  const context = canvas.getContext('2d');
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    columns = Math.floor(canvas.width / fontSize);
-    matrix.length = 0;
-    for (let i = 0; i < columns; i++) matrix[i] = 1;
+    container.appendChild(art);
+    document.body.appendChild(container);
 
  
-    art.style.left = window.innerWidth / 2 - art.offsetWidth / 2 + 'px';
-    art.style.top = window.innerHeight / 2 - art.offsetHeight / 2 + 'px';
-  }
-
-  let columns;
-  const matrix = [];
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  function drawMatrix() {
-    context.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    context.fillStyle = '#aaaaaa';
-    context.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < matrix.length; i++) {
-      const text =
-        charactersArray[Math.floor(Math.random() * charactersArray.length)];
-      context.fillText(text, i * fontSize, matrix[i] * fontSize);
-
-      if (matrix[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        matrix[i] = 0;
-      }
-      matrix[i]++;
+    try {
+      const audio = document.createElement('audio');
+      audio.src = 'https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
+      audio.autoplay = true;
+      audio.loop = true;
+      audio.volume = 0.5;
+      audio.controls = false;
+      document.body.appendChild(audio);
+    } catch (e) {
+      console.warn('音频加载失败', e);
     }
-  }
 
-  function animateMatrix() {
-    drawMatrix();
+ 
+    const characters = 'S-H4CK13 Maptnh Russia';
+    const charactersArray = characters.split('');
+    const fontSize = 16;
+    const speed = 3;
+    const context = canvas.getContext('2d');
+
+    let columns;
+    const matrix = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      matrix.length = 0;
+      for (let i = 0; i < columns; i++) matrix[i] = 1;
+
+ 
+      art.style.left = window.innerWidth / 2 - art.offsetWidth / 2 + 'px';
+      art.style.top = window.innerHeight / 2 - art.offsetHeight / 2 + 'px';
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function drawMatrix() {
+      context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      context.fillStyle = '#aaaaaa';
+      context.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < matrix.length; i++) {
+        const text = charactersArray[Math.floor(Math.random() * charactersArray.length)];
+        context.fillText(text, i * fontSize, matrix[i] * fontSize);
+
+        if (matrix[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          matrix[i] = 0;
+        }
+        matrix[i]++;
+      }
+    }
+
+    function animateMatrix() {
+      drawMatrix();
+      requestAnimationFrame(animateMatrix);
+    }
+
+ 
     requestAnimationFrame(animateMatrix);
-  }
-
-  animateMatrix();
+  });
 })();
