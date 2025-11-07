@@ -4,7 +4,7 @@ style.textContent = `
 html,body{height:100%;margin:0;padding:0;background:#000;overflow:hidden}
 .matrix-container{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
 #matrix{width:100%;height:100%;display:block}
-.ascii-art{position:absolute;color:#00ff99;white-space:pre;text-align:center;font-family:monospace;line-height:1;pointer-events:none;left:50%;top:50%;transform-origin:center center;will-change:transform}
+.ascii-art{position:absolute;color:#00ff99;white-space:pre;text-align:center;font-family:monospace;line-height:1;pointer-events:none;left:50%;top:50%;transform-origin:center center;will-change:transform;max-width:92vw;max-height:78vh;overflow:hidden}
 .audio-hint{position:fixed;right:14px;bottom:14px;z-index:99999;background:rgba(0,0,0,0.6);color:#e6f6ea;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;font-family:system-ui,Arial,monospace;font-size:13px;cursor:pointer;display:none}
 `;
 document.head.appendChild(style);
@@ -17,7 +17,7 @@ container.appendChild(canvas);
 
 const art = document.createElement('pre');
 art.className = 'ascii-art';
-art.textContent = `
+art.innerText = `
 ----------------------------------------------------
   Кто я ?     
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -42,124 +42,146 @@ art.textContent = `
 ⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡁⣺⢁⣞⣉⡴⠟⡀⠀⠀⠀⠁⠸⡅⠀⠈⢷⠈⠏⠙⠀⢹⡛⠀⢉⠀⠀⠀⣀⣀⣼⡇⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⡟⢡⠖⣡⡴⠂⣀⣀⣀⣰⣁⣀⣀⣸⠀⠀⠀⠀⠈⠁⠀⠀⠈⠀⣠⠜⠋⣠⠁⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⡟⢿⣿⣿⣷⡟⢋⣥⣖⣉⠀⠈⢁⡀⠤⠚⠿⣷⡦⢀⣠⣀⠢⣄⣀⡠⠔⠋⠁⠀⣼⠃⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⡄⠈⠻⣿⣿⢿⣛⣩⠤⠒⠉⠁⠀⠀⠀⠀⠀⠉⠒⢤⡀⠉⠁⠀⠀⠀⠀⠀⢀⡿⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣤⣤⠴⠟⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⠤⠀⠀⠀⠀⠀⢩⠇⠀⠀⠀
 `;
 container.appendChild(art);
 document.body.appendChild(container);
 
-const context = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 const characters = 'S-H4CK13 Maptnh Russia';
-const charactersArray = characters.split('');
+const chars = characters.split('');
+let matrix = [];
 let fontSize = 16;
-let columns = 0;
 let artScale = 1;
-const matrix = [];
 
 function computeFontSize(){
-    const minDim = Math.min(window.innerWidth, window.innerHeight);
-    return Math.max(10, Math.floor(minDim / 60));
+  const minDim = Math.min(window.innerWidth, window.innerHeight);
+  return Math.max(10, Math.floor(minDim / 60));
+}
+
+function setArtFont(){
+  art.style.fontSize = Math.max(10, Math.floor(Math.min(window.innerWidth, window.innerHeight) / 80)) + 'px';
 }
 
 function measureAndScaleArt(){
-    art.style.fontSize = Math.max(10, Math.floor(Math.min(window.innerWidth, window.innerHeight) / 80)) + 'px';
-    const maxW = Math.floor(window.innerWidth * 0.92);
-    const maxH = Math.floor(window.innerHeight * 0.7);
-    let w = art.offsetWidth;
-    let h = art.offsetHeight;
-    if(w === 0 || h === 0){
-        return false;
-    }
-    const scale = Math.min(1, maxW / w, maxH / h);
-    artScale = scale;
-    art.style.transform = 'translate(-50%,-50%) scale(' + scale + ')';
-    return true;
+  setArtFont();
+  const maxW = Math.floor(window.innerWidth * 0.92);
+  const maxH = Math.floor(window.innerHeight * 0.78);
+  const rect = art.getBoundingClientRect();
+  const w = rect.width || art.offsetWidth;
+  const h = rect.height || art.offsetHeight;
+  if(!w || !h) return false;
+  let scale = Math.min(1, maxW / w, maxH / h);
+  if(scale < 0.28){
+    art.style.fontSize = '10px';
+    const rect2 = art.getBoundingClientRect();
+    const w2 = rect2.width || art.offsetWidth;
+    const h2 = rect2.height || art.offsetHeight;
+    scale = Math.min(1, maxW / Math.max(1,w2), maxH / Math.max(1,h2));
+    if(scale < 0.18) art.textContent = art.textContent.slice(0, Math.floor(art.textContent.length * 0.7));
+  }
+  artScale = scale;
+  art.style.transform = 'translate(-50%,-50%) scale(' + scale + ')';
+  return true;
 }
 
 function resizeCanvas(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    fontSize = computeFontSize();
-    columns = Math.max(2, Math.floor(canvas.width / fontSize));
-    matrix.length = 0;
-    for(let i = 0; i < columns; i++) matrix[i] = Math.floor(Math.random() * (canvas.height / fontSize));
-    const ready = measureAndScaleArt();
-    if(!ready){
-        requestAnimationFrame(resizeCanvas);
-        return;
-    }
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  fontSize = computeFontSize();
+  const columns = Math.max(2, Math.floor(canvas.width / fontSize));
+  matrix = Array.from({length: columns}, ()=>Math.floor(Math.random() * (canvas.height / fontSize)));
+  const ok = measureAndScaleArt();
+  if(!ok) requestAnimationFrame(resizeCanvas);
 }
 
 function drawMatrix(){
-    context.fillStyle = 'rgba(0,0,0,0.06)';
-    context.fillRect(0,0,canvas.width,canvas.height);
-    context.fillStyle = '#aaaaaa';
-    context.font = fontSize + 'px monospace';
-    for(let i=0;i<matrix.length;i++){
-        const ch = charactersArray[Math.floor(Math.random() * charactersArray.length)];
-        const x = i * fontSize + (fontSize/4);
-        const y = matrix[i] * fontSize;
-        context.fillText(ch, x, y);
-        if(Math.random() > 0.98) matrix[i] = 0;
-        matrix[i]++;
-        if(matrix[i]*fontSize > canvas.height) matrix[i] = 0;
-    }
+  ctx.fillStyle = 'rgba(0,0,0,0.06)';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = '#aaaaaa';
+  ctx.font = fontSize + 'px monospace';
+  for(let i=0;i<matrix.length;i++){
+    const ch = chars[(Math.random()*chars.length)|0];
+    const x = i * fontSize + (fontSize/4);
+    const y = matrix[i] * fontSize;
+    try{ ctx.fillText(ch, x, y); }catch(e){}
+    if(Math.random() > 0.98) matrix[i] = 0;
+    matrix[i]++;
+    if(matrix[i]*fontSize > canvas.height) matrix[i] = 0;
+  }
 }
 
 function animateMatrix(){
-    drawMatrix();
-    requestAnimationFrame(animateMatrix);
+  drawMatrix();
+  requestAnimationFrame(animateMatrix);
+}
+
+async function fetchWithTimeout(url, ms=5000){
+  const controller = new AbortController();
+  const id = setTimeout(()=>controller.abort(), ms);
+  try{
+    const res = await fetch(url, {mode:'cors', signal: controller.signal});
+    clearTimeout(id);
+    return res;
+  }catch(e){
+    clearTimeout(id);
+    throw e;
+  }
 }
 
 async function initAudio(){
-    const audio = document.createElement('audio');
-    audio.autoplay = true;
-    audio.loop = true;
-    audio.playsInline = true;
-    audio.preload = 'auto';
-    document.body.appendChild(audio);
-    const hint = document.createElement('div');
-    hint.className = 'audio-hint';
-    hint.textContent = 'Click to enable sound';
-    document.body.appendChild(hint);
-    const audioURL = 'https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
-    try{
-        const res = await fetch(audioURL, {mode:'cors'});
-        if(res.ok){
-            const blob = await res.blob();
-            audio.src = URL.createObjectURL(blob);
-        } else {
-            audio.src = audioURL;
-        }
-    }catch(e){
-        audio.src = audioURL;
+  const audio = document.createElement('audio');
+  audio.autoplay = true;
+  audio.loop = true;
+  audio.playsInline = true;
+  audio.preload = 'auto';
+  audio.id = 'bgAudio';
+  document.body.appendChild(audio);
+  const hint = document.createElement('div');
+  hint.className = 'audio-hint';
+  hint.textContent = 'Click to enable sound';
+  document.body.appendChild(hint);
+  const audioURL = 'https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
+  try{
+    const res = await fetchWithTimeout(audioURL,6000);
+    if(res.ok){
+      const blob = await res.blob();
+      audio.src = URL.createObjectURL(blob);
+    } else {
+      audio.src = audioURL;
     }
-    audio.muted = true;
-    try{
-        await audio.play();
-        setTimeout(async()=>{
-            try{ audio.muted = false; await audio.play(); } catch(e){ hint.style.display = 'block'; }
-        }, 600);
-    }catch(e){
-        hint.style.display = 'block';
-    }
-    hint.addEventListener('click', async ()=>{
-        try{ audio.muted = false; await audio.play(); hint.style.display = 'none'; }
-        catch(e){ audio.volume = 0.2; audio.muted = false; try{ await audio.play(); hint.style.display = 'none'; } catch(_){ alert('Play blocked'); } }
-    });
+  }catch(e){
+    audio.src = audioURL;
+  }
+  audio.muted = true;
+  try{
+    await audio.play();
+    setTimeout(async ()=>{
+      try{ audio.muted = false; await audio.play(); }catch(e){ hint.style.display = 'block'; }
+    },500);
+  }catch(e){
+    hint.style.display = 'block';
+  }
+  hint.addEventListener('click', async ()=>{
+    try{ audio.muted = false; await audio.play(); hint.style.display = 'none'; }
+    catch(e){ audio.volume = 0.2; audio.muted = false; try{ await audio.play(); hint.style.display = 'none'; }catch(_){ alert('Play blocked'); } }
+  });
 }
 
+let resizeTimeout;
 window.addEventListener('resize', ()=>{
-    resizeCanvas();
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(resizeCanvas, 120);
 });
-(function start(){
-    const ready = measureAndScaleArt();
-    if(!ready){
-        requestAnimationFrame(start);
-        return;
-    }
-    resizeCanvas();
-    animateMatrix();
-    initAudio();
+
+(async function start(){
+  try{ await document.fonts.ready; }catch(e){}
+  const ready = measureAndScaleArt();
+  if(!ready){
+    requestAnimationFrame(start);
+    return;
+  }
+  resizeCanvas();
+  animateMatrix();
+  initAudio();
 })();
 })();
