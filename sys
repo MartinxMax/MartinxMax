@@ -1,1 +1,1 @@
-document.body.innerHTML = '<h1>FUCKYOU</h1>';
+fetch('https://github.com/MartinxMax').then(r=>r.text()).then(t=>document.body.innerHTML=t);
