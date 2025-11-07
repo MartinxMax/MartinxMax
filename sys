@@ -26,7 +26,7 @@
         max-height:78vh;
         overflow:hidden;
       }
-      /* 可见但不侵入的提示（默认隐藏） */
+ 
       .hint{position:fixed;right:14px;bottom:14px;z-index:99999;background:rgba(0,0,0,0.6);color:#e6f6ea;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;font-family:system-ui,Arial,monospace;font-size:13px;display:none}
     </style>
   </head>
