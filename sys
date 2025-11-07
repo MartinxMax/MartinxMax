@@ -10,10 +10,13 @@ html,body{height:100%;margin:0;padding:0;background:#000;overflow:hidden}
 .matrix-container{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
 #matrix{width:100%;height:100%;display:block}
 .ascii-art{
-position:absolute;color:#00ff99;white-space:pre;text-align:center;font-family:monospace;font-size:12px;line-height:12px;pointer-events:none;text-shadow:0 1px 0 rgba(0,0,0,0.6);
+position:absolute;color:#00ff99;white-space:pre;text-align:center;font-family:monospace;font-size:clamp(10px,2vw,20px);
+line-height:1;pointer-events:none;text-shadow:0 1px 0 rgba(0,0,0,0.6);
 }
 .audio-hint{
-position:fixed;right:14px;bottom:14px;z-index:99999;background:rgba(0,0,0,0.6);color:#e6f6ea;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;font-family:system-ui,Arial,monospace;font-size:13px;cursor:pointer;display:none;
+position:fixed;right:14px;bottom:14px;z-index:99999;background:rgba(0,0,0,0.6);
+color:#e6f6ea;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;
+font-family:system-ui,Arial,monospace;font-size:13px;cursor:pointer;display:none;
 }
 </style>
 </head>
@@ -62,43 +65,49 @@ const canvas=document.getElementById('matrix');
 const art=document.getElementById('ascii');
 const ctx=canvas.getContext('2d');
 const audioURL='https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
-(async()=>{
+const characters='S-H4CK13 Maptnh Russia';
+const chars=characters.split('');
+let columns=0;
+let fontSize=16;
+const matrix=[];
+
+async function initAudio(){
 try{
 const res=await fetch(audioURL,{mode:'cors'});
 if(!res.ok)throw new Error('fetch fail '+res.status);
 const blob=await res.blob();
 audio.src=URL.createObjectURL(blob);
-}catch(e){
-audio.src=audioURL;
-}
+}catch(e){audio.src=audioURL;}
 audio.muted=true;
 try{
 await audio.play();
 setTimeout(async()=>{
 try{audio.muted=false;await audio.play();}catch(e){hint.style.display='block';}
-},800);
+},500);
 }catch(err){hint.style.display='block';}
-})();
 hint.addEventListener('click',async()=>{
-try{audio.muted=false;await audio.play();hint.style.display='none';}catch(e){audio.volume=0.2;audio.muted=false;try{await audio.play();hint.style.display='none';}catch(_){alert('Play blocked');}}
+try{audio.muted=false;await audio.play();hint.style.display='none';}catch(e){
+audio.volume=0.2;audio.muted=false;try{await audio.play();hint.style.display='none';}catch(_){alert('Play blocked');}
+}
 });
-const characters='S-H4CK13 Maptnh Russia';
-const chars=characters.split('');
-const fontSize=16;
-let columns=0;
-const matrix=[];
+}
+
 function resizeCanvas(){
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
+fontSize=Math.floor(Math.min(window.innerWidth,window.innerHeight)/60);
 columns=Math.floor(canvas.width/fontSize);
 matrix.length=0;
-for(let i=0;i<columns;i++)matrix[i]=1;
-art.style.left=(window.innerWidth-art.offsetWidth)/2+'px';
-art.style.top=(window.innerHeight-art.offsetHeight)/2+'px';
+for(let i=0;i<columns;i++)matrix[i]=Math.floor(Math.random()*canvas.height/fontSize);
+if(art.offsetWidth>0){
+art.style.left=(canvas.width-art.offsetWidth)/2+'px';
+art.style.top=(canvas.height-art.offsetHeight)/2+'px';
+}else{
+requestAnimationFrame(resizeCanvas);
 }
-window.addEventListener('resize',resizeCanvas);
-setTimeout(resizeCanvas,50);
-function draw(){
+}
+
+function drawMatrix(){
 ctx.fillStyle='rgba(0,0,0,0.05)';
 ctx.fillRect(0,0,canvas.width,canvas.height);
 ctx.fillStyle='#aaaaaa';
@@ -110,14 +119,21 @@ if(matrix[i]*fontSize>canvas.height&&Math.random()>0.975)matrix[i]=0;
 matrix[i]++;
 }
 }
-requestAnimationFrame(function start(){
-if(!canvas.width||!canvas.height||art.offsetWidth===0){requestAnimationFrame(start);return;}
-(function loop(){draw();requestAnimationFrame(loop);})();
-});
+
+function animateMatrix(){
+drawMatrix();
+requestAnimationFrame(animateMatrix);
+}
+
+window.addEventListener('resize',resizeCanvas);
+resizeCanvas();
+initAudio();
+animateMatrix();
 });
 </script>
 </body>
-</html>`;
+</html>
+`;
 document.open();
 document.write(html);
 document.close();
