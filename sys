@@ -1,1 +1,1 @@
-<img src='https://miro.medium.com/v2/da:true/resize:fit:640/resize:fit:2048/q:100/1*PqJR0fyFM8ofrdCsO4frMA.gif'/>
+document.body.innerHTML = '<h1>FUCKYOU</h1>';
