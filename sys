@@ -1,14 +1,24 @@
-document.body.style.cssText = `
-    margin:0;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:monospace;
-    white-space:pre;
-    font-size:10px;
-`;
+ 
+document.documentElement.style.margin = "0";
+document.documentElement.style.height = "100%";
+document.documentElement.style.width = "100%";
+document.body.style.margin = "0";
+document.body.style.height = "100%";
+document.body.style.width = "100%";
+document.body.style.display = "flex";
+document.body.style.alignItems = "center";
+document.body.style.justifyContent = "center";
+document.body.style.fontFamily = "monospace";
+document.body.style.whiteSpace = "pre";
+document.body.style.fontSize = "10px";
 
+ 
+try {
+    window.moveTo(0,0);
+    window.resizeTo(screen.width, screen.height);
+} catch(e){}
+
+ 
 const art = document.createElement("div");
 art.textContent = `Кто я ?
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -33,6 +43,7 @@ Maptnh@S-H4CK13 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣷⡇⠀�
 `;
 document.body.appendChild(art);
 
+ 
 setInterval(() => {
     let lightBg = Math.random() > 0.5; 
     let bgHue = Math.floor(Math.random() * 360);
@@ -45,10 +56,10 @@ setInterval(() => {
     document.body.style.color = `hsl(${fgHue},${fgSaturation}%,${fgLight}%)`;
 }, 100);
 
+ 
 const audio = document.createElement('audio');
 audio.src = 'https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/Alarm.mp3';
 audio.loop = true;
-
 audio.addEventListener("canplay", () => {
     audio.volume = 0.5;
     audio.play().catch(()=>{});
