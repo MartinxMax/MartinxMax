@@ -7,6 +7,12 @@
 
 <table>
   <tr>
+<td>
+      <a href="https://youtu.be/Lc6xsFKc130?si=5AiD5M8IJnxtLRvu">
+        <img src="https://img.youtube.com/vi/5AiD5M8IJnxtLRvu/0.jpg" width="200" alt="5AiD5M8IJnxtLRvu">
+      </a>
+      <h2>Simple C2 Server.</h2>
+    </td>
     <td>
       <a href="https://www.youtube.com/watch?v=0KnU6x_CeZM">
         <img src="https://img.youtube.com/vi/0KnU6x_CeZM/0.jpg" width="200" alt="0KnU6x_CeZM">
