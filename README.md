@@ -8,8 +8,8 @@
 <table>
   <tr>
 <td>
-      <a href="https://youtu.be/Lc6xsFKc130?si=5AiD5M8IJnxtLRvu">
-        <img src="https://img.youtube.com/vi/5AiD5M8IJnxtLRvu/0.jpg" width="200" alt="5AiD5M8IJnxtLRvu">
+      <a href="https://youtu.be/Lc6xsFKc130?si=Lc6xsFKc130">
+        <img src="https://img.youtube.com/vi/Lc6xsFKc130/0.jpg" width="200" alt="Lc6xsFKc130">
       </a>
       <h2>Simple C2 Server.</h2>
     </td>
