@@ -18,7 +18,7 @@
 🟪🟪⠀⠀🟪🟪🟪⠀⠀🟪🟪
 🟪⠀⠀⠀⠀⠀⠀🟪⠀⠀⠀⠀⠀⠀🟪
 
-maptnhr@S-H4CK13# team
+Мартин@S-H4CK13# team
 >>> h4ck13 = recruitment.need('Red Team Researcher','Graffiti Enthusiast','Parkour Runner / Freerunner')
 >>> print(recruitment.result(h4ck13))
                                                             ░▒▒░                                                            
