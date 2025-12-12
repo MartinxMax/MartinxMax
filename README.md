@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="qr1.png" width="180"/>
+  <img src="qr2.jpg" width="180" style="margin-left:20px;"/>
+</p>
+
 # ~/Terminal
 
 ```BASH
@@ -178,4 +183,3 @@ Waiting for Uuuuuuuuuuu.........
 </table>
 
 ---
-
