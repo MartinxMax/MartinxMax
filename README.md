@@ -2,7 +2,19 @@
   <img src="qr1.png" width="180"/>
   <img src="qr2.jpg" width="180" style="margin-left:20px;"/>
 </p>
+<H1>
+Hey, friend.
+  
+Are you willing to join S-H4CK13?
 
+We’re looking for real talent — not spectators, but people who actually know how to operate.
+
+If you’re interested in what we’re doing, or if you believe you’re worthy of the name, reach out.
+Contact: youdontrun@proton.me
+
+Opportunities don’t wait.
+
+</H1> 
 # ~/Terminal
 
 ```BASH
