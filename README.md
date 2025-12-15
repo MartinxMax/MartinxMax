@@ -2,19 +2,17 @@
   <img src="qr1.png" width="180"/>
   <img src="qr2.jpg" width="180" style="margin-left:20px;"/>
 </p>
-<H1>
-Hey, friend.
-  
-Are you willing to join S-H4CK13?
 
-We’re looking for real talent — not spectators, but people who actually know how to operate.
+Hey friend,
 
-If you’re interested in what we’re doing, or if you believe you’re worthy of the name, reach out.
-Contact: youdontrun@proton.me
+If you find my **research reports** and **red team tools** valuable, I’d really appreciate your help in **sharing and promoting** them.
 
-Opportunities don’t wait.
+I’ve been consistently focused on developing **high-value security research** and **technically deep exploit code**, prioritizing **substance over hype**.
 
-</H1> 
+My work aims to be **reproducible**, **analyzable**, and **practical** for **real-world offensive and defensive security scenarios**.
+
+Your support helps me continue investing time and effort into **serious, in-depth security research**.
+
 # ~/Terminal
 
 ```BASH
