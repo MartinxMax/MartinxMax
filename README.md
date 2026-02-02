@@ -1,17 +1,4 @@
 
-<img src='https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/cn.png'/>
-
-# Repo 
-
-How Telegram Clicks Can Leak Your Real IP? A Step-by-Step Reproduction and Analysis from an Offensive Security Perspective? => https://github.com/MartinxMax/Telegram_one_click_leak_IP
-
-A TCP stream replay attack analysis and exploitation verification tool.
-Sniffs and mirrors authorized TCP sessions, reconstructs payloads, and automatically identifies and highlights sensitive data.
-Replays captured traffic by impersonating the target service to validate replay attack viability under real network conditions. => https://github.com/MartinxMax/mirrordog
-
-Evil‑Bat is a real‑time human (live body) detection and activity logging tool based on remote network cameras.
-It analyzes RTSP video streams to identify the presence of living humans and automatically records key moments when people appear in the camera view. => https://github.com/MartinxMax/evil-b4t
-
 # Notice
 
 [![committers.top badge](https://user-badge.committers.top/russia/MartinxMax.svg)](https://user-badge.committers.top/russia/MartinxMax)
@@ -183,3 +170,5 @@ However, please note that most of the projects involve a certain level of risk t
 </table>
 
 ---
+
+<img src='https://raw.githubusercontent.com/MartinxMax/MartinxMax/refs/heads/main/cn.png'/>
